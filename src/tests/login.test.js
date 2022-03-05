@@ -83,7 +83,7 @@ describe('1 - Crie uma página inicial de login com os seguintes campos e caract
     userEvent.type(senha, VALID_PASSWORD);
     fireEvent.click(button);
 
-    expect(store.getState().user.email).toBe(VALID_EMAIL);
+    (expect(store.getState().user.email).toBe(VALID_EMAIL));
   });
 
   test('A rota deve ser mudada para \'/carteira\' após o clique no botão.', () => {
