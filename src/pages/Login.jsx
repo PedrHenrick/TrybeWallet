@@ -2,19 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import setUser from '../redux/actions';
+import { setUser } from '../redux/actions';
 import ButtonGeneric from '../component/ButtonGeneric';
 import InputGeneric from '../component/InputGeneric';
 
 class Login extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      email: '',
-      password: '',
-      disableButtonLogin: true,
-    };
-  }
+  state = {
+    email: '',
+    password: '',
+    disableButtonLogin: true,
+  };
 
   componentDidUpdate() {
     const { email, password, disableButtonLogin } = this.state;
@@ -65,6 +62,7 @@ class Login extends React.Component {
           <InputGeneric
             type="email"
             name="email"
+            labelName="E-mail:"
             value={ email }
             data="email-input"
             handleChange={ this.handleChange }
@@ -72,6 +70,7 @@ class Login extends React.Component {
           <InputGeneric
             type="password"
             name="password"
+            labelName="Senha:"
             value={ password }
             data="password-input"
             handleChange={ this.handleChange }

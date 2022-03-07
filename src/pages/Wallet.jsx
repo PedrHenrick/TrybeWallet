@@ -1,10 +1,29 @@
-import React from 'react';
-import HeaderWallet from '../component/HeaderWallet';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-class Wallet extends React.Component {
+import HeaderWallet from '../component/HeaderWallet';
+import AddExpenseForm from '../component/AddExpenseForm';
+import asyncThunk from '../redux/actions';
+
+class Wallet extends Component {
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(asyncThunk());
+  }
+
   render() {
-    return <HeaderWallet />;
+    return (
+      <main>
+        <HeaderWallet />
+        <AddExpenseForm />
+      </main>
+    );
   }
 }
 
-export default Wallet;
+export default connect()(Wallet);
+
+Wallet.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+};

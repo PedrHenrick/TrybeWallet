@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 
 class ButtonGeneric extends Component {
   render() {
-    const { disableButtonLogin, name, handleClick } = this.props;
+    const {
+      disableButtonLogin = false,
+      name = '',
+      handleClick = () => {},
+    } = this.props;
     return (
       <button
         type="button"

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class InputGeneric extends Component {
+class TextareaGeneric extends Component {
   render() {
     const {
-      type = 'text',
       value = '',
       handleChange = () => {},
       name = '',
@@ -14,8 +13,7 @@ class InputGeneric extends Component {
     return (
       <label htmlFor={ name }>
         { labelName }
-        <input
-          type={ type }
+        <textarea
           name={ name }
           value={ value }
           data-testid={ data }
@@ -26,15 +24,11 @@ class InputGeneric extends Component {
   }
 }
 
-export default InputGeneric;
+export default TextareaGeneric;
 
-InputGeneric.propTypes = {
-  type: PropTypes.string.isRequired,
+TextareaGeneric.propTypes = {
   name: PropTypes.string.isRequired,
-  value: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]).isRequired,
+  value: PropTypes.string.isRequired,
   data: PropTypes.string.isRequired,
   labelName: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
