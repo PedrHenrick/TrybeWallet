@@ -11,7 +11,10 @@ class SelectGeneric extends Component {
     const ARRAY_LEGNTH = 6;
     return values.length < ARRAY_LEGNTH
       ? values.map((curr) => <option key={ curr }>{ curr }</option>)
-      : values.map((curr) => <option key={ curr[0] }>{ curr[0] }</option>);
+      : values
+        .map(
+          (curr) => <option key={ curr[0] } data-testid={ curr[0] }>{ curr[0] }</option>,
+        );
   }
 
   render() {
@@ -29,8 +32,9 @@ class SelectGeneric extends Component {
       values = ['Dinheiro', 'Cartão de crédito', 'Cartão de débito'];
     } else if (data === 'tag-input') {
       values = ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'];
-    } else if (data === 'currency-input') {
-      values = coin;
+    } else if (data === 'currency-input' && coin !== undefined) {
+      const currency = coin;
+      values = currency.filter((curr) => curr[0] !== 'USDT');
     }
 
     return (

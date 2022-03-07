@@ -59,8 +59,6 @@ class AddExpenseForm extends Component {
       disableButtonLogin,
     } = this.state;
 
-    // const { coin } = this.props;
-
     return (
       <form>
         <InputGeneric
@@ -120,13 +118,11 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
-  // coin: state.wallet.coin,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddExpenseForm);
 
 AddExpenseForm.propTypes = {
-  // coin: PropTypes.arrayOf(PropTypes.any).isRequired,
   expenses: PropTypes.arrayOf(PropTypes.object).isRequired,
   asyncThunkDispath: PropTypes.func.isRequired,
 };
