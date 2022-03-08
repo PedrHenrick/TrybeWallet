@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { setUser } from '../redux/actions';
+import { setUser } from '../actions';
 import ButtonGeneric from '../component/ButtonGeneric';
 import InputGeneric from '../component/InputGeneric';
 

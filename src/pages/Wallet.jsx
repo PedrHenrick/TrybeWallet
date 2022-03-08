@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import HeaderWallet from '../component/HeaderWallet';
 import AddExpenseForm from '../component/AddExpenseForm';
-import asyncThunk from '../redux/actions';
+import asyncThunk from '../actions';
 
 class Wallet extends Component {
   componentDidMount() {

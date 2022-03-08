@@ -6,7 +6,7 @@ import ButtonGeneric from './ButtonGeneric';
 import InputGeneric from './InputGeneric';
 import TextareaGeneric from './TextareaGeneric';
 import SelectGeneric from './SelectGeneric';
-import asyncThunk from '../redux/actions';
+import asyncThunk from '../actions';
 
 class AddExpenseForm extends Component {
   state = {

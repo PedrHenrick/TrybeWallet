@@ -1,5 +1,5 @@
 // Coloque aqui suas actions
-import getResultAPICurrency from '../../services/currencyAPI';
+import getResultAPICurrency from '../services/currencyAPI';
 import { GET_USER } from '../reducers/user';
 import { GET_WALLET, ALL_CURRENCYS } from '../reducers/wallet';
 
