@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import HeaderWallet from '../component/HeaderWallet';
 import AddExpenseForm from '../component/AddExpenseForm';
+import AddTableForExpense from '../component/AddTableForExpense';
 import asyncThunk from '../actions';
 
 class Wallet extends Component {
@@ -17,6 +18,7 @@ class Wallet extends Component {
       <main>
         <HeaderWallet />
         <AddExpenseForm />
+        <AddTableForExpense />
       </main>
     );
   }
