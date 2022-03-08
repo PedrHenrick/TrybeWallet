@@ -2,11 +2,11 @@
 export const GET_WALLET = 'GET_WALLET';
 export const ALL_CURRENCYS = 'ALL_CURRENCYS';
 export const REQUEST_COINS = 'REQUEST_COINS';
+export const DELETE_EXPENSES = 'DELETE_EXPENSES';
 
 const wallet = {
   currencies: [],
   expenses: [],
-  totalExpenses: 0,
 };
 
 const walletReducer = (state = wallet, action) => {
@@ -15,12 +15,16 @@ const walletReducer = (state = wallet, action) => {
     return ({
       ...state,
       expenses: [...state.expenses, action.userExpense],
-      totalExpenses: state.totalExpenses + action.valueExpense,
     });
   case ALL_CURRENCYS:
     return ({
       ...state,
       coin: action.currencys,
+    });
+  case DELETE_EXPENSES:
+    return ({
+      ...state,
+      expenses: state.expenses.filter((expense) => expense !== action.deleteExpense),
     });
   default:
     return state;

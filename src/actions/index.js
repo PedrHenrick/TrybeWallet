@@ -1,7 +1,7 @@
 // Coloque aqui suas actions
 import getResultAPICurrency from '../services/currencyAPI';
 import { GET_USER } from '../reducers/user';
-import { GET_WALLET, ALL_CURRENCYS } from '../reducers/wallet';
+import { GET_WALLET, ALL_CURRENCYS, DELETE_EXPENSES } from '../reducers/wallet';
 
 export const setUser = (email) => ({
   type: GET_USER,
@@ -13,10 +13,14 @@ const setCurrency = (coin) => ({
   currencys: coin,
 });
 
+export const deleteExpenses = (expense) => ({
+  type: DELETE_EXPENSES,
+  deleteExpense: expense,
+});
+
 const setExpense = (expense) => ({
   type: GET_WALLET,
   userExpense: { ...expense },
-  valueExpense: expense.value * parseFloat(expense.exchangeRates[expense.currency].ask),
 });
 
 const asyncThunk = (expense = []) => (

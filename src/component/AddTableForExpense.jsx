@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { deleteExpenses } from '../actions';
 
 class AddTableForExpense extends Component {
+  handleClick = (expense) => {
+    const { deleteExpense } = this.props;
+
+    deleteExpense(expense);
+  }
+
   render() {
     const { expenses } = this.props;
 
+    // Referência:
+    //  -thead: https://www.w3schools.com/tags/tag_thead.asp
+    //  -tbody: w3schools.com/tags/tag_tbody.asp
+    //  -table: w3schools.com/tags/tag_table.asp
     return (
       <table>
         <thead>
@@ -37,10 +48,13 @@ class AddTableForExpense extends Component {
               <td>{ expense.value * expense.exchangeRates[expense.currency].ask }</td>
               <td>Real</td>
               <td>
-                <div>
-                  <button type="button">Editar</button>
-                  <button type="button">Excluir</button>
-                </div>
+                <button
+                  type="button"
+                  data-testid="delete-btn"
+                  onClick={ () => this.handleClick(expense) }
+                >
+                  Excluir
+                </button>
               </td>
             </tr>
           ))}
@@ -50,12 +64,17 @@ class AddTableForExpense extends Component {
   }
 }
 
+const mapDispatchToProps = (dispatch) => ({
+  deleteExpense: (expense) => dispatch(deleteExpenses(expense)),
+});
+
 const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
 });
 
-export default connect(mapStateToProps)(AddTableForExpense);
+export default connect(mapStateToProps, mapDispatchToProps)(AddTableForExpense);
 
 AddTableForExpense.propTypes = {
+  deleteExpense: PropTypes.func.isRequired,
   expenses: PropTypes.arrayOf(PropTypes.any).isRequired,
 };
